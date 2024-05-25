@@ -1,0 +1,67 @@
+﻿@model Product
+
+<form method="post">
+    <div class="border p-4 mt-4 rounded shadow-sm bg-light">
+
+        <div class="row pb-2">
+            <h2 class="text-primary">Delete Category</h2>
+            <hr />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Name" class="form-label">Category Name</label>
+            <input asp-for="Name" disabled type="text" class="form-control enhanced-input" />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Description" class="form-label">Description</label>
+            <input asp-for="Description" disabled type="text" class="form-control enhanced-input" />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Author" class="form-label">Author</label>
+            <input asp-for="Author" disabled type="text" class="form-control enhanced-input" />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="ListPrice" class="form-label">List Price</label>
+            <input asp-for="ListPrice" disabled type="text" class="form-control enhanced-input" />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Price" class="form-label">Price</label>
+            <input asp-for="Price" disabled type="text" class="form-control enhanced-input" />
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-6 d-grid">
+                <button type="submit" class="btn btn-danger">Delete</button>
+            </div>
+            <div class="col-6 d-grid">
+                <a asp-controller="Category" asp-action="Index" class="btn btn-secondary">Back to List</a>
+            </div>
+        </div>
+    </div>
+</form>
+
+<style>
+    .enhanced-input {
+        background-color: #f8f9fa;
+        border: 2px solid #ced4da;
+        color: #495057;
+        transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+
+        .enhanced-input:focus {
+            background-color: #ffffff;
+            border-color: #80bdff;
+            outline: 0;
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+        }
+
+    .btn {
+        border-radius: 5px;
+        font-size: 16px;
+        padding: 10px 0;
+    }
+</style>

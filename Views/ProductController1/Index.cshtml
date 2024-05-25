@@ -1,0 +1,75 @@
+﻿@model List<Product>
+
+<div class="container">
+    <div class="row pt-4 pb3">
+        <div class="col-6">
+            <h2 class="text-primary">
+                Category List
+            </h2>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-controller="ProductController1" asp-action="Create" class="btn btn-primary">
+                <i class="bi bi-plus-circle"></i> Create New
+            </a>
+
+        </div>
+    </div>
+
+
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>
+                    Product name
+                </th>
+                <th>
+                   Description
+                </th>
+                <th>
+                    Author
+                </th>
+                <th>
+                    ListPrice
+                </th>
+                <th>
+                    Price
+                </th>
+                <th>
+                    Price50
+                </th>
+                <th>
+                    Product Image
+                </th>
+                <th>
+                    Create At
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var obj in Model.OrderBy(u => u.Id))
+            {
+                <tr>
+                    <td>@obj.Name</td>
+                    <td>@obj.Description</td>
+                    <td>@obj.Author</td>
+                    <td>@obj.ListPrice</td>
+                    <td>@obj.Price</td>
+                    <td>@obj.Price50</td>
+                    <td><img src="@obj.ImagePath" width="100"/></td>
+                    <td>@obj.CreatedAt.ToString("MM/dd/yyyy")</td>
+
+                    <td>
+                        <div class="w-75 btn-group " role="group">
+                            <a asp-controller="ProductController1" asp-route-id="@obj.Id" asp-action="Edit" class="btn btn-primary mx-2">
+                                <i class="bi bi-pencil-square"></i> Edit
+                            </a>
+                            <a asp-controller="ProductController1" asp-route-id="@obj.Id" asp-action="Delete" class="btn btn-danger mx-2">
+                                <i class="bi bi-trash"></i> Delete
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

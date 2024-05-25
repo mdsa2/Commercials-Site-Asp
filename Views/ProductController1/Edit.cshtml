@@ -1,0 +1,72 @@
+﻿@model Product
+ 
+<form method="post">
+ <input asp-for="Id" hidden/>
+ <div action="row">
+     <div class="col-10">
+            <div class="border p-3 mt-4">
+
+                <div class="row pb-2">
+                    <h2 class="text-primary">Create Product</h2>
+                    <hr />
+
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Name" class="p0 row p-0">Product Name</label>
+                    <input asp-for="Name" type="text" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Description" class="p0 row p-0">Description</label>
+                    <input asp-for="Description" type="text" class="form-control" />
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Author" class="p0 row p-0">Author</label>
+                    <input asp-for="Author" type="text" class="form-control" />
+                    <span asp-validation-for="Author" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="ListPrice" class="p0 row p-0">ListPrice</label>
+                    <input asp-for="ListPrice" type="text" class="form-control" />
+                    <span asp-validation-for="ListPrice" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Price" class="p0 row p-0">Price</label>
+                    <input asp-for="Price" type="text" class="form-control" />
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Price50" class="p0 row p-0">Price50 Quntity</label>
+                    <input asp-for="Price50" type="text" class="form-control" />
+                    <span asp-validation-for="Price50" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <img src="/images/Product/"@ViewData["ImagePath"] width="100" />
+                    <input type="file"  asp-for="ImagePath" type="text" class="form-control" />
+                    
+                </div>
+               
+                <div class="row">
+                    <div class="col-6">
+                        <button type="submit" class="btn btn-primary form-control" style="width:150px; border: 2px">
+                            Edit
+                        </button>
+                    </div>
+                    <div class="col-6">
+                        <a asp-controller="ProductController1" asp-action="Index" class="btn btn-secondary form-control" style="width:150px; border: 2px solid #000; border-radius: 5px; padding: 10px 0; font-size: 16px;">
+                            Back to List
+                        </a>
+                    </div>
+                </div>
+
+
+     </div>
+            <div class="col-2">
+            
+                    <img src="@Model.ImagePath" width="100%" />
+        
+
+            </div>
+ </div>
+  </form>

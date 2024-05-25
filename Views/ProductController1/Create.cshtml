@@ -1,0 +1,121 @@
+﻿@model Product
+
+@if (TempData["Success"] != null)
+{
+    <h2 class="alert alert-success">@TempData["Success"]</h2>
+}
+
+<form method="post" class="row" enctype="multipart/form-data">
+    <div class="border p-4 mt-4 rounded shadow-sm bg-light">
+
+        <div class="row pb-2">
+            <h2 class="text-primary">Edit Category</h2>
+            <hr />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Name" class="form-label">Product Name</label>
+            <input asp-for="Name" type="text" class="form-control enhanced-input" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Description" class="form-label">Description</label>
+            <input asp-for="Description" type="text" class="form-control enhanced-input" />
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Author" class="form-label">Author</label>
+            <input asp-for="Author" type="text" class="form-control enhanced-input" />
+            <span asp-validation-for="Author" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="ListPrice" class="form-label">List Price</label>
+            <input asp-for="ListPrice" type="text" class="form-control enhanced-input" />
+            <span asp-validation-for="ListPrice" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Price" class="form-label">Price</label>
+            <input asp-for="Price" type="text" class="form-control enhanced-input" />
+            <span asp-validation-for="Price" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Price50" class="form-label">Price50</label>
+            <input asp-for="Price50" type="text" class="form-control enhanced-input" />
+            <span asp-validation-for="Price50" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="ImagePath" class="form-label">Product Image</label>
+            <input asp-for="ImagePath" type="file" name="file" class="form-control" />
+            <span asp-validation-for="ImagePath" class="text-danger"></span>
+        </div>
+   
+        <div class="row mt-4">
+            <div class="col-6 d-grid">
+                <button type="submit" class="btn btn-primary">Create</button>
+            </div>
+          
+          
+            <div class="col-6 d-grid">
+                <a asp-controller="Product" asp-action="Index" class="btn btn-secondary">Back to List</a>
+            </div>
+        </div>
+    </div>
+</form>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+<style>
+    .enhanced-input {
+        background-color: #f8f9fa;
+        border: 2px solid #ced4da;
+        color: #495057;
+        transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+
+        .enhanced-input:focus {
+            background-color: #ffffff;
+            border-color: #80bdff;
+            outline: 0;
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+        }
+
+    .btn {
+        border-radius: 5px;
+        font-size: 16px;
+        padding: 10px 0;
+    }
+
+    .alert {
+        padding: 15px;
+        margin-bottom: 20px;
+        border: 1px solid transparent;
+        border-radius: 4px;
+    }
+
+    .alert-success {
+        color: #3c763d;
+        background-color: #dff0d8;
+        border-color: #d6e9c6;
+    }
+
+    .form-label {
+        font-weight: 600;
+    }
+
+    .rounded {
+        border-radius: 8px;
+    }
+
+    .shadow-sm {
+        box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
+    }
+
+    .bg-light {
+        background-color: #f8f9fa !important;
+    }
+</style>
